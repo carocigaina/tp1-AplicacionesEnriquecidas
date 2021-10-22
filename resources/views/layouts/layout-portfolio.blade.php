@@ -15,13 +15,13 @@
                                     <span>Hello I'm</span>
                                 </div>
                                 
-                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Alex Johnson</h2>
-                                <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">Product Designer</h4>
+                                <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">{{ $user->name }}</h4>
                                 
                                 <ul>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">getemail@email.com</a></li>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:">+12 986 987 7867</a></li>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>37, Pollsatnd, New York, United State</address></li>
+                                    <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->title_job }}</h2>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">{{ $user->email }}</a></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:{{ $user->tel }}">{{ $user->tel }}</a></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>{{ $user->address }}</address></li>
                                 </ul>
                                 
                                 <ul class="social-icon wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
@@ -35,7 +35,7 @@
                         <div class="col-sm-6">
                             <div class="hero-img wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
                                 <div class="img-border">
-                                    <img src="assets/images/hero.png" alt=""  class="img-fluid">
+                                    <img src="{{ asset('assets/images/hero.png') }}" alt=""  class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -54,24 +54,18 @@
                 <div class="row section-separator">
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                            <img src="assets/images/ab-img.png" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/ab-img.png') }}" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-inner">
                             <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">About Me</h2>
-                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Hello, I’m a Patrick, web-developer based on Paris. 
-                            I have rich experience in web site design & building 
-                            and customization. Also I am good at</p>
+                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</p>
                             <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 <ul>
-                                    <li><span>php</span></li>
-                                    <li><span>html</span></li>
-                                    <li><span>css</span></li>
-                                    <li><span>php</span></li>
-                                    <li><span>wordpress</span></li>
-                                    <li><span>React</span></li>
-                                    <li><span>Javascript</span></li>
+                                    @foreach($user->skill as $skill)
+                                    <li><span>{{ $skill->name }}</span></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Downlaod CV <i class="fa fa-download"></i></a>
@@ -141,25 +135,29 @@
                         <div class="section-title col-sm-12">
                             <h3>Featured Projects</h3>
                         </div>
+                        
                         <div class="col-sm-12">
+                            @foreach($user->featuredProjects as $featuredProjects)
                             <div class="mh-single-project-slide-by-side row">
                                 <!-- Project Items -->
+                                
                                 <div class="col-sm-12 mh-featured-item">
                                     <div class="row">
                                         <div class="col-sm-7">
                                             <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                                <img src="assets/images/p-2.png" alt="" class="img-fluid">
+                                                <img src="{{ asset('assets/images/p-2.png') }}" alt="" class="img-fluid">
                                             </div>
                                         </div>
+                                        
                                         <div class="col-sm-5">
+                                        
                                             <div class="mh-featured-project-content">
-                                                <h4 class="project-category wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Web Design</h4>
-                                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">Wrap</h2>
-                                                <span class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">Design & Development</span>
-                                                <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">Stamp is a clean and elegant Multipurpose Landing Page Template. 
-                                                It will fit perfectly for Startup, Web App or any type of Web Services.
-                                                It has 4 background styles with 6 homepage styles. 6 pre-defined color scheme. 
-                                                All variations are organized separately so you can use / customize the template very easily.</p>
+                                            
+                                                <h4 class="project-category wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">{{ $featuredProjects->categoria }}</h4>
+                                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">{{ $featuredProjects->titulo }}</h2>
+                                                <span class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">{{ $featuredProjects->puesto }}</span>
+                                                <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">{{ $featuredProjects->descripcion }}</p>
+                                            
                                                 <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">View Details</a>
                                                 <div class="mh-testimonial mh-project-testimonial wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.9s">
                                                     <blockquote>
@@ -176,83 +174,19 @@
                                     				</blockquote>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <!-- Project Items -->
-                                <div class="col-sm-12 mh-featured-item">
-                                    <div class="row">
-                                        <div class="col-sm-7">
-                                            <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                                <img src="assets/images/p-2.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="mh-featured-project-content">
-                                                <h4 class="project-category wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Web Design</h4>
-                                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">Wrap</h2>
-                                                <span class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">Design & Development</span>
-                                                <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">Stamp is a clean and elegant Multipurpose Landing Page Template. 
-                                                It will fit perfectly for Startup, Web App or any type of Web Services.
-                                                It has 4 background styles with 6 homepage styles. 6 pre-defined color scheme. 
-                                                All variations are organized separately so you can use / customize the template very easily.</p>
-                                                <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">View Details</a>
-                                                <div class="mh-testimonial mh-project-testimonial wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.9s">
-                                                    <blockquote>
-                                    					<q>Excellent Template - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
-                                    				</blockquote>
-                                    				<blockquote>
-                                    					<q>Creative Template - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
-                                    				</blockquote>
-                                    				<blockquote>
-                                    					<q>Organize Code - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
-                                    				</blockquote>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- Project Items -->
-                                <div class="col-sm-12 mh-featured-item">
-                                    <div class="row">
-                                        <div class="col-sm-7">
-                                            <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                                <img src="assets/images/p-2.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="mh-featured-project-content">
-                                                <h4 class="project-category wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Web Design</h4>
-                                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">Wrap</h2>
-                                                <span class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">Design & Development</span>
-                                                <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">Stamp is a clean and elegant Multipurpose Landing Page Template. 
-                                                It will fit perfectly for Startup, Web App or any type of Web Services.
-                                                It has 4 background styles with 6 homepage styles. 6 pre-defined color scheme. 
-                                                All variations are organized separately so you can use / customize the template very easily.</p>
-                                                <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">View Details</a>
-                                                <div class="mh-testimonial mh-project-testimonial wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.9s">
-                                                    <blockquote>
-                                    					<q>Excellent Template - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
-                                    				</blockquote>
-                                    				<blockquote>
-                                    					<q>Creative Template - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
-                                    				</blockquote>
-                                    				<blockquote>
-                                    					<q>Organize Code - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
-                                    				</blockquote>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
+                            
                         </div>
+                        @endforeach
                     </div> <!-- End: .row -->
                 </div>
             </div>
@@ -275,98 +209,34 @@
                                 <div class="mh-professional-skill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                     <h3>Technical Skills</h3>
                                     <div class="each-skills">
+                                        @foreach($user->skill as $skill)
                                         <div class="candidatos">
+                                            
                                             <div class="parcial">
                                                 <div class="info">
-                                                    <div class="nome">Javascript</div>
-                                                    <div class="percentagem-num">86%</div>
+                                                    <div class="nome">{{ $skill->name }}</div>
+                                                    <div class="percentagem-num">{{ $skill->percent }}%</div>
                                                 </div>
                                                 <div class="progressBar">
-                                                    <div class="percentagem" style="width: 86%;"></div>
+                                                    <div class="percentagem" style="width: {{ $skill->percent }}%;"></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Java</div>
-                                                    <div class="percentagem-num">46%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 46%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Python</div>
-                                                    <div class="percentagem-num">38%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 38%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">PHP</div>
-                                                    <div class="percentagem-num">17%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 17%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>                                    
-                                        
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Python</div>
-                                                    <div class="percentagem-num">38%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 38%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">PHP</div>
-                                                    <div class="percentagem-num">17%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 17%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        @endforeach
+                                       
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-professional-skills wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
                                 <h3>Professional Skills</h3>
+                                @foreach($user->skillsProfessional as $skillsProfessional)
                                 <ul class="mh-professional-progress">
+                                
                                     <li>
-                                        <div class="mh-progress mh-progress-circle" data-progress="95"></div>
-                                        <div class="pr-skill-name">Communication</div>
+                                        <div class="mh-progress mh-progress-circle" data-progress="{{ $skillsProfessional->percent }}"></div>
+                                        <div class="pr-skill-name">{{ $skillsProfessional->name }}</div>
                                     </li>
-                                    <li>
-                                        <div class="mh-progress mh-progress-circle" data-progress="55"></div> 
-                                        <div class="pr-skill-name">Team Work</div>
-                                    </li>
-                                    <li>
-                                        <div class="mh-progress mh-progress-circle" data-progress="86"></div>
-                                        <div class="pr-skill-name">Project Management</div>
-                                    </li> 
-                                    <li>
-                                        <div class="mh-progress mh-progress-circle" data-progress="60"></div>
-                                        <div class="pr-skill-name">Creativity</div>
-                                    </li>
+                                      
                                 </ul>
+                                @endforeach 
                             </div>
                         </div>
                     </div>
@@ -387,27 +257,14 @@
                             <div class="mh-education">
                                 <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Education</h3>
                                 <div class="mh-education-deatils">
-                                    <!-- Education Institutes-->
-                                    <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a 
-                                        page when looking at its layout. The point of using  Lorem Ipsum </p>
-                                    </div>                                
-                                    <!-- Education Institutes-->
-                                    <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a 
-                                        page when looking at its layout. The point of using  Lorem Ipsum </p>
-                                    </div>                                
-                                    <!-- Education Institutes-->
-                                    <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a 
-                                        page when looking at its layout. The point of using L orem Ipsum </p>
-                                    </div>
+                                    @foreach($user->education as $education)
+                                        <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                                            <h4>{{ $education->degree }}<a href="#">{{ $education->school_name }}</a></h4>
+                                            <div class="mh-eduyear">{{ $education->start_date }} - {{ $education->finish_date }}</div>
+                                            <p>{{ $education->description }}</p>
+                                        </div>
+                                    @endforeach
+                               
                                 </div>
                             </div>
                         </div>
@@ -416,35 +273,17 @@
                                  <h3>Work Experience</h3>
                                 <div class="mh-experience-deatils">
                                     <!-- Education Institutes-->
+                                    @foreach($user->works as $works)
                                     <div class="mh-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                                        <h4>UI/UX Designer <a href="#">IronSketch</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
+                                        <h4>{{ $works->work_name }} <a href="#">{{ $works->lugar }}</a></h4>
+                                        <div class="mh-eduyear">{{ $works->start_date }} - {{ $works->finish_date }}</div>
                                         <span>Responsibility :</span>
                                         <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>Validate CSS</li>
-                                            <li><i class="fa fa-circle"></i>Project Management</li>
+                                            <li><i class="fa fa-circle"></i>{{ $works->tareas }}</li>
+                                            
                                         </ul>
                                     </div>                                
-                                    <!-- Education Institutes-->
-                                    <div class="mh-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <span>Responsibility :</span>
-                                        <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>Validate CSS</li>
-                                            <li><i class="fa fa-circle"></i>Project Management</li>
-                                        </ul>
-                                    </div>                                
-                                    <!-- Education Institutes-->
-                                    <div class="mh-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <span>Responsibility :</span>
-                                        <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>Validate CSS</li>
-                                            <li><i class="fa fa-circle"></i>Project Management</li>
-                                        </ul>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -478,7 +317,7 @@
                             <div class="portfolioContainer row">
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
                                     <figure>
-                                        <img src="assets/images/portfolio/g1.jpg" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g1.jpg') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
@@ -489,89 +328,89 @@
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui mockup">
                                     <figure>
-                                        <img src="assets/images/portfolio/g2.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g2.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g2.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g2.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
                                     <figure>
-                                        <img src="assets/images/portfolio/g3.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g3.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g3.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g3.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g5.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g5.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g5.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g5.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
                                     <figure>
-                                        <img src="assets/images/portfolio/g4.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g4.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g4.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g4.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g6.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g6.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g6.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g6.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g8.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g8.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g8.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g8.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui">
                                     <figure>
-                                        <img src="assets/images/portfolio/g9.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g9.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g9.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g9.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g7.jpg" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g7.jpg') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g7.jpg" data-fancybox="gallery"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g7.jpg') }}" data-fancybox="gallery"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -609,9 +448,9 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="mh-portfolio-modal-img">
-                                <img src="assets/images/pr-0.jif" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/images/pr-0.jif') }}" alt="" class="img-fluid">
                                 <p>All variations are organized separately so you can use / customize the template very easily.</p>    
-                                <img src="assets/images/pr-1.jif" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/images/pr-1.jif') }}" alt="" class="img-fluid">
                                 <p>All variations are organized separately so you can use / customize the template very easily.</p>     
                             </div>
                         </div>
@@ -714,55 +553,31 @@
                         <div class="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
                             <h3>Featured Posts</h3>
                         </div>
+                        @foreach($user->post as $post)
                         <div class="col-sm-12 col-md-4">
+                        
                              <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                <img src="assets/images/b-3.png" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/images/b-3.png') }}" alt="" class="img-fluid">
+                                
                                 <div class="blog-inner">
-                                    <h2><a href="blog-single.html">A life without the daily traffic jams</a></h2>
+                                   
+                                    <h2><a href="blog-single.html">{{ $post->titulo }}</a></h2>
                                     <div class="mh-blog-post-info">
                                         <ul>
-                                            <li><strong>Post On</strong><a href="#">24.11.19</a></li>
-                                            <li><strong>By</strong><a href="#">ThemeSpiders</a></li>
+                                            <li><strong>Post On</strong><a href="#">{{ $post->fecha }}</a></li>
+                                            <li><strong>By</strong><a href="#">{{ $post->autor }}</a></li>
                                         </ul>
                                     </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                                    <p>{{ $post->descripcion }}</p>
                                     <a href="blog-single.html">Read More</a>
+                                    
                                 </div>
+                                
                             </div>
+                            
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                <img src="assets/images/b-2.png" alt="" class="img-fluid">
-                                <div class="blog-inner">
-                                    <h2><a href="blog-single.html">Proportion are what’s really needed</a></h2>
-                                    <div class="mh-blog-post-info">
-                                        <ul>
-                                            <li><strong>Post On</strong><a href="#">24.11.19</a></li>
-                                            <li><strong>By</strong><a href="#">ThemeSpiders</a></li>
-                                        </ul>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                                    <a href="blog-single.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                <img src="assets/images/b-1.png" alt="" class="img-fluid">
-                                <div class="blog-inner">
-                                    <h2><a href="blog-single.html">Mounts of paper work to remember the way</a></h2>
-                                    <div class="mh-blog-post-info">
-                                        <ul>
-                                            <li><strong>Post On</strong><a href="#">24.11.19</a></li>
-                                            <li><strong>By</strong><a href="#">ThemeSpiders</a></li>
-                                        </ul>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                                    <a href="blog-single.html">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                        
                 </div>
             </div>
         </section> 
@@ -782,7 +597,7 @@
                         <div class="col-sm-12 wow fadeInUp" id="mh-client-review" data-wow-duration="0.8s" data-wow-delay="0.3s">
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -792,7 +607,7 @@
                             </div>
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -803,7 +618,7 @@
                             
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -813,7 +628,7 @@
                             </div>
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -823,7 +638,7 @@
                             </div>
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -834,7 +649,7 @@
                             
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>

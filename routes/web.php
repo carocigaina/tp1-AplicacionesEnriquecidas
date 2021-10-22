@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
+
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -13,8 +14,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::view('/','welcome');
+Route::get('hola', function() {
+    
+    return view('hola');
 
-Route::view('/portfolio','portfolio');
+});
+
+Route::get('adios', function() {
+
+    return view('adios');
+
+});
+
+Route::get('portfolio/{slug}',function($slug){
+        
+    //dd($users); es tipo var_dump
+    $user=User::with('skill')->with('education')->where('slug',$slug)->first();
+    if($user){    
+        return view('portfolio')->with('user', $user);
+    }else{  
+        return view('welcome');
+    }
+
+});
+
+Route::get('portfolio',function(){
+        //DUDAAAAAAAAAAAAAAAAAAAAAAAAA ESTA BIEN?
+    //dd($users); es tipo var_dump
+    $user=User::with('skill')->with('education')->with('skillProfessional')->with('works')->with('featuredProyects')->with('post')->latest()->get();
+    
+        return view('portfolio')->with('user', $user[0]);
+
+    
+    
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    
+    return view('dashboard');
+})->name('dashboard');

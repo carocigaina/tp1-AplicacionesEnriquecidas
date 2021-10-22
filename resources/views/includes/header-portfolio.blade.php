@@ -12,10 +12,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 
         <!-- FAV AND ICONS   -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <link rel="shortcut icon" href="assets/images/apple-icon.png">
-        <link rel="shortcut icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
-        <link rel="shortcut icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('assets/images/apple-icon.png') }}">
+        <link rel="shortcut icon" sizes="72x72" href="{{ asset('assets/images/apple-icon-72x72.png') }}">
+        <link rel="shortcut icon" sizes="114x114" href="{{ asset('assets/images/apple-icon-114x114.png') }}">
         
         <!-- Google Font-->
         <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -48,12 +48,12 @@
     <body class="dark-vertion black-bg">
         
         <!-- Start Loader -->
-        <div class="section-loader">
+        <!-- <div class="section-loader">
             <div class="loader">
                 <div></div>
                 <div></div> 
             </div>
-        </div>
+        </div> -->
         <!-- End Loader -->
         
         <!--
