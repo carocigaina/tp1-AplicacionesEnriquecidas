@@ -15,10 +15,10 @@
                                     <span>Hello I'm</span>
                                 </div>
                                 
-                                <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">{{ $user->name }}</h4>
+                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</h2>
                                 
                                 <ul>
-                                    <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->title_job }}</h2>
+                                    <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->title_job }}</h4>
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">{{ $user->email }}</a></li>
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:{{ $user->tel }}">{{ $user->tel }}</a></li>
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>{{ $user->address }}</address></li>
@@ -60,7 +60,7 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-inner">
                             <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">About Me</h2>
-                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</p>
+                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->about }}</p>
                             <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 <ul>
                                     @foreach($user->skill as $skill)
@@ -143,15 +143,15 @@
                                                 <div class="mh-testimonial mh-project-testimonial wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.9s">
                                                     <blockquote>
                                     					<q>Excellent Template - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
+                                    					<cite>{{ $user->name }}</cite>
                                     				</blockquote>
                                     				<blockquote>
                                     					<q>Creative Template - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
+                                    					<cite>{{ $user->name }}</cite>
                                     				</blockquote>
                                     				<blockquote>
                                     					<q>Organize Code - suits my needs perfectly whilst allowing me to learn some new technology first hand.</q>
-                                    					<cite>- Shane Kavanagh</cite>
+                                    					<cite>{{ $user->name }}</cite>
                                     				</blockquote>
                                                 </div>
                                             </div>
