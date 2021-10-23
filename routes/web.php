@@ -42,7 +42,7 @@ Route::get('portfolio/{slug}',function($slug){
 Route::get('portfolio',function(){
         //DUDAAAAAAAAAAAAAAAAAAAAAAAAA ESTA BIEN?
     //dd($users); es tipo var_dump
-    $user=User::with('skill')->with('education')->with('skillProfessional')->with('works')->with('featuredProyects')->with('post')->latest()->get();
+    $user=User::with('skill')->with('education')->with('skillProfessional')->with('works')->with('featuredProyects')->with('post')->with('whatIdo')->latest()->get();
     
         return view('portfolio')->with('user', $user[0]);
 

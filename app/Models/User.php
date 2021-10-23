@@ -86,4 +86,9 @@ class User extends Authenticatable
         return $this->hasMany(post::class, 'user_id', 'id');
 
     }
+    public function whatIdo()
+    {
+        return $this->hasMany(whatIdo::class, 'user_id', 'id');
+
+    }
 }
