@@ -12,10 +12,10 @@
                         <div class="col-sm-6">
                             <div class="mh-header-info">
                                 <div class="mh-promo wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-                                    <span>Hello I'm</span>
+                                    <span>{{ $user->mensaje }}</span>
                                 </div>
                                 
-                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</h2>
+                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->uppercase }}</h2>
                                 
                                 <ul>
                                     <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->title_job }}</h4>
@@ -25,17 +25,31 @@
                                 </ul>
                                 
                                 <ul class="social-icon wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    @foreach($user->redes as $red)
+                                    @if ($red->name == 'facebook')
+                                        <li><a href="{{ $red->name }}"><i class="fa fa-facebook"></i></a></li>
+                                    @endif
+                                    @if ($red->name == 'twitter')
+                                        <li><a href="{{ $red->name }}"><i class="fa fa-twitter"></i></a></li>
+                                    @endif
+                                    @if ($red->name == 'github')
+                                        <li><a href="{{ $red->name }}"><i class="fa fa-github"></i></a></li>
+                                    @endif
+                                    @if ($red->name == 'instagram')
+                                        <li><a href="{{ $red->name }}"><i class="fa fa-instagram"></i></a></li>
+                                    @endif
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="hero-img wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
                                 <div class="img-border">
-                                    <img src="{{ asset('assets/images/hero.png') }}" alt=""  class="img-fluid">
+                                    @if ($user->image)
+                                        <img src="{{ $user->get_image }}" alt="{{ $user->name }}" class="img-fluid">
+                                    @else    
+                                        <img src="{{ asset('assets/images/hero.png') }}" alt=""  class="img-fluid">
+                                    @endif
                                 </div>
                             </div>
                         </div>

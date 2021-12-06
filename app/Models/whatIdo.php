@@ -5,11 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class whatIdo extends Model
+class Whatido extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        
+        'user_id',
+        'titulo',
+        'descripcion',
+
+        
+        
+    ];
     public function user()
     {
-        return $this->belongsTo(whatIdo::class);
+        return $this->belongsTo(whatido::class);
     }
 }

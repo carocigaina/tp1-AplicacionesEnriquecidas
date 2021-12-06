@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWhatIdosTable extends Migration
+class CreateSectionImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateWhatIdosTable extends Migration
      */
     public function up()
     {
-        Schema::create('what_idos', function (Blueprint $table) {
+        Schema::create('section_images', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('titulo')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->string('image')->nullable();
+            $table->unsignedBigInteger('category_section_id');
+            
+            $table->foreign('category_section_id')->references('id')->on('category_sections')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateWhatIdosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('what_idos');
+        Schema::dropIfExists('section_images');
     }
 }

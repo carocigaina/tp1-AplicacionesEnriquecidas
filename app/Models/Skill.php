@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     use HasFactory;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'user_id',
+        'percent',
+
+        
+        
+    ];
 
     public function user()
 {

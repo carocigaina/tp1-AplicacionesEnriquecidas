@@ -10,7 +10,8 @@ use App\Models\skillsProfessional;
 use App\Models\works;
 use App\Models\post;
 use App\Models\featuredProjects;
-use App\Models\whatIdo;
+use App\Models\whatido;
+
 class DatabaseSeeder extends Seeder
 {
     
@@ -21,13 +22,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
+        User::factory(5)->create()->each(function ($user) {
+            $user->assignRole('client');
+        });
         Skill::factory(25)->create();
         Education::factory(18)->create();
         skillsProfessional::factory(30)->create();
         works::factory(20)->create();
         post::factory(10)->create();
         featuredProjects::factory(20)->create();
-        whatIdo::factory(10)->create();
+        whatido::factory(10)->create();
+        
     }
 }
