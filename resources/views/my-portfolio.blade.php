@@ -17,6 +17,7 @@
         enctype="multipart/form-data" method="POST">
 
             <div class="row">
+            
                 <div class="col-md-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" >
                         Nombres

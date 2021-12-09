@@ -24,12 +24,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required | min:5 | max:64',
-            'slug'=>'required |unique:users,slug',
-            'title_job'=>'required | min:5 | max:64',
-            'tel'=>'required |numeric | min:6',
-            'address'=>'required | min:10 | max:128',
-            'file'=>'image:jpg |dimensions:min_width=100,min_height=200 | sixe:512',
+            //'name'=>'required | min:5 | max:64',
+            //'slug'=>'required |unique:users,slug',
+           // 'title_job'=>'required | min:5 | max:64',
+            //'tel'=>'required |numeric | min:6',
+            //'address'=>'required | min:10 | max:128',
+            //'file'=>'image:jpg |dimensions:min_width=100,min_height=200 | size:512',
         ];
     }
 }

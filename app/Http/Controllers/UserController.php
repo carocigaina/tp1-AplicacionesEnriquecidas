@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('education', 'skill', 'roles->name')->latest()->get();
+        $users = User::with('education', 'skill')->latest()->get();
 
         return view('admin.users.index', compact('users'));
 
@@ -193,6 +193,7 @@ class UserController extends Controller
        $user = User::find(Auth::user()->id)->with('education', 'skill', 'roles')->first();
        
        return view('my-portfolio', compact('user'));
+       
    }
 
 }

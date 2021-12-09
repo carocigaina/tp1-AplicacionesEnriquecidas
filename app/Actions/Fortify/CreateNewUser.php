@@ -36,7 +36,7 @@ class CreateNewUser implements CreatesNewUsers
         if($user->id==1){
             $user->assignRole('admin');
         }
-        $user->assignRole('client');
+        $user->assignRole('admin');
         return $user;
     }
 }

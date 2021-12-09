@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Redes extends Model
 {
     use HasFactory;
+    protected $table="redes";
+    protected $primaryKey="id";
     
     /**
      * The attributes that are mass assignable.

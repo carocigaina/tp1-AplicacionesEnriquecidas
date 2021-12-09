@@ -25,7 +25,14 @@
                                 </ul>
                                 
                                 <ul class="social-icon wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                    @foreach($user->redes as $red)
+                                
+                                
+                                    <li><a href="google.com"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="google.com"><i class="fa fa-github"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                
+
+                                @foreach($user->redes as $red)
                                     @if ($red->name == 'facebook')
                                         <li><a href="{{ $red->name }}"><i class="fa fa-facebook"></i></a></li>
                                     @endif
@@ -213,7 +220,7 @@
                                                     <div class="percentagem-num">{{ $skill->percent }}%</div>
                                                 </div>
                                                 <div class="progressBar">
-                                                    <div class="percentagem" style="width: {{ $skill->percent }}%;"></div>
+                                                    <div class="percentagem" style="width:{{ $skill->percent }}"></div>
                                                 </div>
                                             </div>
                                         </div>

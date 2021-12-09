@@ -85,6 +85,32 @@ Route::get('portfolio', function(){
 Route::get('logout-user', UserController::class.'@logout_user')->name('logout-user');
 
 Route::group(['middleware'=> ['auth:sanctum', 'verified']], function (){
+
+    Route::get('dashboard', function (){
+        return view('admin.dashboard');
+     })->name('dashboard');
+
+
+     Route::resource('user', UserController::class)->except([
+         'show'
+     ]);
+
+     Route::resource('skill', SkillController::class)->except([
+         'show'
+     ]);
+
+
+     Route::resource('redes', RedesController::class);
+     Route::post('storeSkill', SkillController::class.'@storeSkill')->name('storeSkill');
+     Route::post('createwhat', WhatidoController::class.'@createwhat')->name('createwhat');
+     Route::put('updateSkill', SkillController::class.'@updateSkill')->name('updateSkill');
+     Route::delete('destroySkill', SkillController::class.'@destroySkill')->name('destroySkill');
+     Route::delete('destroy', WhatidoController::class.'@destroy')->name('destroy');
+     Route::put('update', WhatidoController::class.'@update')->name('update');
+     Route::get('my-portfolio', UserController::class.'@my_portfolio')->name('my-portfolio');
+     
+
+/* 
     Route::group(['middleware' => ['role:admin']], function(){
 
         Route::get('dashboard', function (){
@@ -99,6 +125,14 @@ Route::group(['middleware'=> ['auth:sanctum', 'verified']], function (){
         Route::resource('skill', SkillController::class)->except([
             'show'
         ]);
+
+        Route::post('storeSkill', SkillController::class.'@storeSkill')->name('storeSkill');
+        Route::post('createwhat', WhatidoController::class.'@createwhat')->name('createwhat');
+        Route::put('updateSkill', SkillController::class.'@updateSkill')->name('updateSkill');
+        Route::delete('destroySkill', SkillController::class.'@destroySkill')->name('destroySkill');
+        Route::delete('destroy', WhatidoController::class.'@destroy')->name('destroy');
+        Route::put('update', WhatidoController::class.'@update')->name('update');
+
     });
 
     Route::group(['middleware' => ['role:client']], function(){
@@ -120,5 +154,5 @@ Route::group(['middleware'=> ['auth:sanctum', 'verified']], function (){
         Route::delete('destroy', WhatidoController::class.'@destroy')->name('destroy');
         Route::put('update', WhatidoController::class.'@update')->name('update');
 
-    });
+    }); */
 });
