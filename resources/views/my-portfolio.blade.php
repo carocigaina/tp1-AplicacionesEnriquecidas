@@ -183,13 +183,31 @@
             </div>
 
             
-
+<!--
             <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
                 
-                @include('client.includes.about-edit') 
+                <div class="d-flex align-items-start">
+                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-aboutcrear-tab" data-bs-toggle="pill" data-bs-target="#v-pills-aboutcrear" type="button" role="tab" aria-controls="v-pills-aboutcrear" aria-selected="true">Crear About</button>
+                        <button class="nav-link" id="v-pills-aboutedit-tab" data-bs-toggle="pill" data-bs-target="#v-pills-aboutedit" type="button" role="tab" aria-controls="v-pills-aboutedit" aria-selected="false">Editar</button>
+                        
+                    </div>
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-aboutcrear" role="tabpanel" aria-labelledby="v-pills-aboutcrear-tab">
+                            
+                        @include('client.includes.about-create') 
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-aboutedit" role="tabpanel" aria-labelledby="v-pills-aboutedit-tab">
+                        @include('client.includes.about-edit') 
+                        </div>
+                        
+                    </div>
+                </div> 
             </div>
 
+
             
+-->
         </div>
     </div>
 

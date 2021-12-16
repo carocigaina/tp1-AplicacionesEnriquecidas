@@ -28,39 +28,14 @@
                 <label class="text-gray-700 text-sm font-bold mb-2" >
                     Mensaje
                 </label>
-                <input id="cute_message" type="text"  name="cute_message" class="form-control" value="{{ old('top_message', $user->top_message) }}">
-                @error('top_message')
-                <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ top_message }}</div>
+                <input id="mensaje" type="text"  name="mensaje" class="form-control" value="{{ old('mensaje', $user->mensaje) }}">
+                @error('mensaje')
+                <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ message }}</div>
                 @enderror
             </div>
-            <div class="col-md-4">
-                <label class="text-gray-700 text-sm font-bold mb-2" >
-                    Titulo
-                </label>
-                <input id="title_job" type="text"  name="title_job" class="form-control" value="{{ old('title_job', $user->title_job) }}">
-                @error('title_job')
-                <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
-                @enderror
-            </div>
+            
 
-            <div class="col-md-4">
-                <label class="text-gray-700 text-sm font-bold mb-2" >
-                    Teléfono
-                </label>
-                <input id="tel" type="text"  name="tel" class="form-control" value="{{ old('tel', $user->tel) }}">
-                @error('tel')
-                <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="col-md-4">
-                <label class="text-gray-700 text-sm font-bold mb-2" >
-                    Dirección
-                </label>
-                <input id="address" type="text"  name="address" class="form-control" value="{{ old('address', $user->address) }}">
-                @error('address')
-                <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
-                @enderror
-            </div>
+        
 
 
             <div class="col-md-4 mt-2 mb-2 w-100">

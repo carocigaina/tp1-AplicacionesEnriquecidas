@@ -11,6 +11,7 @@
                     <div class="row section-separator xs-column-reverse vertical-middle-content home-padding">
                         <div class="col-sm-6">
                             <div class="mh-header-info">
+                                
                                 <div class="mh-promo wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
                                     <span>{{ $user->mensaje }}</span>
                                 </div>
@@ -26,10 +27,6 @@
                                 
                                 <ul class="social-icon wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
                                 
-                                
-                                    <li><a href="google.com"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="google.com"><i class="fa fa-github"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 
 
                                 @foreach($user->redes as $red)
@@ -75,12 +72,17 @@
                 <div class="row section-separator">
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                            <img src="{{ asset('assets/images/ab-img.png') }}" alt="" class="img-fluid">
+                            @if ($user->about_image)
+                                <img src="{{ $user->get_foto }}" alt="{{ $user->about }}" class="img-fluid">
+                            @else
+
+                                <img src="{{ asset('assets/images/ab-img.png') }}" alt="" class="img-fluid">
+                            @endif
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-inner">
-                            <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">About Me</h2>
+                            <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">{{ $user->about_title }}</h2>
                             <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->about }}</p>
                             <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 <ul>
@@ -89,7 +91,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Downlaod CV <i class="fa fa-download"></i></a>
+                            <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">{{ $user->about_button }}<i class="fa fa-download"></i></a>
                         </div>
                     </div>
                 </div>
@@ -105,16 +107,16 @@
             <div class="container">
                 <div class="row section-separator">
                     <div class="col-sm-12 text-center section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                        <h2>What I do</h2>
+                        <h2>{{ $user->what_title }}</h2>
                     </div>
                     
                     <div class="col-sm-4">
-                    @foreach($user->whatIdo as $whatIdo)
+                    @foreach($user->whatido as $whatido)
                         <div class="mh-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                             <i class="fa fa-bullseye purple-color"></i>
                             
-                            <h3>{{ $whatIdo->titulo }}</h3>
-                            <p>{{ $whatIdo->descripcion }} </p>
+                            <h3>{{ $whatido->titulo }}</h3>
+                            <p>{{ $whatido->descripcion }} </p>
                             
                         </div>
                         @endforeach
@@ -220,7 +222,7 @@
                                                     <div class="percentagem-num">{{ $skill->percent }}%</div>
                                                 </div>
                                                 <div class="progressBar">
-                                                    <div class="percentagem" style="width:{{ $skill->percent }}"></div>
+                                                    <div class="percentagem" style="width:{{ $skill->percent }}%"></div>
                                                 </div>
                                             </div>
                                         </div>

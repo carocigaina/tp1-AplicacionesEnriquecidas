@@ -100,9 +100,10 @@ class UserController extends Controller
             $user->image = $request->file('file')->store('users', 'public');
             $user->save();
         }
-        if($request->file('about_image')){
+        //about image
+        if($request->file('file_image')){
             Storage::disk('public')->delete($user->about_image);
-            $user->about_image = $request->file('about_image')->store('users', 'public');
+            $user->about_image = $request->file('file_image')->store('users', 'public');
             $user->save();
         }
 
@@ -145,7 +146,12 @@ class UserController extends Controller
             $user->image = $request->file('file')->store('users', 'public');
             $user->save();
         }
-
+        //imagen de about
+        if($request->file('file_image')){
+            Storage::disk('public')->delete($user->about_image);
+            $user->about_image = $request->file('file_image')->store('users', 'public');
+            $user->save();
+        }
         $user->update($request->all());
 
         return redirect()->to('user');
@@ -165,7 +171,13 @@ class UserController extends Controller
             Storage::disk('public')->delete($user->image);
         }
         $user->delete();
+        //about image
+        if($user->about_image){
+            Storage::disk('public')->delete($user->about_image);
+        }
 
+
+        $user->delete();
         return redirect()->to('user');
     }
 

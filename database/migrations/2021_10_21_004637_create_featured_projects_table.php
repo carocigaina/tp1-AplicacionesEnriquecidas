@@ -15,7 +15,7 @@ class CreateFeaturedProjectsTable extends Migration
     {
         Schema::create('featured_projects', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('categoria')->nullable();
             $table->string('titulo')->nullable();
             $table->string('puesto')->nullable();

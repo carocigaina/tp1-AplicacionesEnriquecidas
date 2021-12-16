@@ -44,7 +44,7 @@ class SkillController extends Controller
          ]);
 
          $skill->save();
-        return redirect()->to('user/'.$data['user_id'].'/edit')->with('sucess','Habilidad creada con exito');
+        return redirect()->to('user/'.$data['user_id'].'/edit')->with('success','Habilidad creada con exito');
     }
 
     

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Whatido;
 
 class WhatidoController extends Controller
 {
@@ -21,7 +22,7 @@ class WhatidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createwhat()
+    public function createwhat(Request $request)
     {
         $data = $request->all();
 

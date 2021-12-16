@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Redes;
+
+use App\Models\About;
+
 use Illuminate\Http\Request;
 
-
-class RedesController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,18 +38,18 @@ class RedesController extends Controller
     {
         $data=$request->all();
         
-        $redes=Redes::create([ 
+        $about=About::create([ 
         
             'name'=>$data['name'],
-            'url'=>$data['url'],
+            
             'user_id'=>intval($data['user_id']),
-            'percent'=> 50
+            
          ]);
 
-         $redes->save();
+         $about->save();
         
-        //return redirect()->to('my-portfolio')->with('success', 'La red social fue creada con exito!');
-        return redirect()->to('user/'.$data['user_id'].'/edit')->with('success','La red social fue creada con exito');
+        
+        return redirect()->to('user/'.$data['user_id'].'/edit')->with('success','El campo de about fue creado con exito');
     }
 
     /**
@@ -85,9 +86,9 @@ class RedesController extends Controller
         $data = $request->all();
         $id = intval($data['id']);
 
-        Redes::where('id', $id)->update(['name' => $data['name'], 'url' => $data['url']]);
+        About::where('id', $id)->update(['name' => $data['name']]);
 
-        return redirect()->to('my-portfolio')->with('success', 'La red social fue editada con exito');
+        return redirect()->to('my-portfolio')->with('success', 'El about fue editado con exito');
     }
 
     /**
@@ -102,7 +103,7 @@ class RedesController extends Controller
        
         $id = intval($data['id']);
 
-        Redes::where('id', $id)->delete();
-        return redirect()->to('my-portfolio')->with('danger','La red social fue borrada con exito');
+        About::where('id', $id)->delete();
+        return redirect()->to('my-portfolio')->with('danger','El about fue borrado con exito');
     }
 }

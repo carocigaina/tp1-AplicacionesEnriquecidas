@@ -120,6 +120,11 @@ class User extends Authenticatable
             return url("storage/$this->image");
         }
     }
+    public function getGetFotoAttribute($key){
+        if($this->about_image){
+            return url("storage/$this->about_image");
+        }
+    }
     public function getUppercaseAttribute($key){
         
             return strtoupper($this->name);

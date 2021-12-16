@@ -100,7 +100,9 @@ Route::group(['middleware'=> ['auth:sanctum', 'verified']], function (){
      ]);
 
 
-     Route::resource('redes', RedesController::class);
+     Route::resource('redes', RedesController::class)->except([
+        'show'
+    ]);
      Route::post('storeSkill', SkillController::class.'@storeSkill')->name('storeSkill');
      Route::post('createwhat', WhatidoController::class.'@createwhat')->name('createwhat');
      Route::put('updateSkill', SkillController::class.'@updateSkill')->name('updateSkill');
