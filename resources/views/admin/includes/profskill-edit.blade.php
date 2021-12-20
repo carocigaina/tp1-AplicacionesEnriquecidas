@@ -8,14 +8,14 @@
                             Skills Profesionales
                         </label>
                         <input id="name" type="text"  name="name" class="form-control" value="{{ old('name', $profskill->name) }}">
-                        <input type="hidden" value="{{ $profskill->id }}" name="user_id">
+                        <input type="hidden" value="{{ $profskill->id }}" name="id">
                     </div>
                     <div class="col-md">
                         <label class="block text-gray-700 text-sm font-bold mb-2" >
                             Porcentaje
                         </label>
                         <input id="percent" type="text"  name="percent" class="form-control" value="{{ old('percent', $profskill->percent) }}">
-                        <input type="hidden" value="{{ $profskill->id }}" name="user_id">
+                        <input type="hidden" value="{{ $profskill->id }}" name="id">
                     </div>
                     
                 </div>

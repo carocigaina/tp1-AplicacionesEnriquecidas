@@ -1,6 +1,6 @@
 @foreach($user->work as $work)
            
-    <form action="{{ route('update', $work) }}"
+    <form action="{{ route('work.update', $work) }}"
             method="POST">
 
                 
@@ -10,7 +10,7 @@
                             Nombre trabajo
                         </label>
                         <input id="work_name" type="text"  name="work_name" class="form-control" value="{{ old('work_name', $work->work_name) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -20,7 +20,7 @@
                         lugar
                         </label>
                         <input id="lugar" type="text"  name="lugar" class="form-control" value="{{ old('lugar', $work->lugar) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -30,7 +30,7 @@
                         tareas
                         </label>
                         <input id="tareas" type="text"  name="tareas" class="form-control" value="{{ old('tareas', $work->tareas) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -40,7 +40,7 @@
                             Fecha inicio
                         </label>
                         <input id="start_date" type="date"  name="start_date" class="form-control" value="{{ old('start_date', $work->start_date) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -50,7 +50,7 @@
                             Fecha finalización
                         </label>
                         <input id="finish_date" type="date"  name="finish_date" class="form-control" value="{{ old('finish_date', $work->finish_date) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -59,7 +59,7 @@
                 
                 <button type="submit" class="site-btn bg-warning btn btn-lg">Actualizar</button>
             </form>
-            <form action="{{ route('destroy', $work) }}" method="POST">
+            <form action="{{ route('work.destroy', $work) }}" method="POST">
             @csrf
             @method('DELETE')
                 

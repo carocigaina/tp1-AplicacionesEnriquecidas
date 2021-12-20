@@ -107,7 +107,7 @@ class ProfskillController extends Controller
         
         $id = intval($data['id']);
         
-        Profskill::where('id', $id)->update(['name' => $data['name'], 'user' => $data['user'], 'percent' => $data['percent']]);
+        Profskill::where('id', $id)->update(['name' => $data['name'], 'percent' => $data['percent']]);
         $profskill = Profskill::where('id', $id)->get();
         return redirect()->to('user/'.$profskill[0]->user_id.'/edit')->with('success','El profesional skill fue editado con exito');
     
