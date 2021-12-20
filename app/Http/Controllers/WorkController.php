@@ -110,11 +110,11 @@ class WorkController extends Controller
     public function destroy(Request $request)
     {
         $data = $request->all();
-
+        
         $id = intval($data['id']);
-        $red = Work::where('id', $id)->get();
+        $work = Work::where('id', $id)->get();
         Work::where('id', $id)->delete();
-        return redirect()->to('user/'.$red[0]->user_id.'/edit')->with('success','El trabajo fue eliminado con exito');
+        return redirect()->to('user/'.$work[0]->user_id.'/edit')->with('success','El trabajo fue eliminado con exito');
         
     }
 }

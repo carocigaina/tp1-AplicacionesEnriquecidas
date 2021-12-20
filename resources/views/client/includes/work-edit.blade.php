@@ -17,7 +17,7 @@
                             Nombre trabajo
                         </label>
                         <input id="work_name" type="text"  name="work_name" class="form-control" value="{{ old('work_name', $work->work_name) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -27,7 +27,7 @@
                         lugar
                         </label>
                         <input id="lugar" type="text"  name="lugar" class="form-control" value="{{ old('lugar', $work->lugar) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -37,7 +37,7 @@
                         tareas
                         </label>
                         <input id="tareas" type="text"  name="tareas" class="form-control" value="{{ old('tareas', $work->tareas) }}">
-                        <input type="hidden" name="id" value="{{ $user->id }}">
+                        <input type="hidden" name="id" value="{{ $work->id }}">
                     </div>
                     
                 </div>
@@ -47,8 +47,8 @@
                 
                 <button type="submit" class="site-btn bg-warning btn btn-lg">Actualizar</button>
             </form>
-            <form action="{{ route('destroy', $work) }}" method="POST">
-            <input type="hidden" name="id" value="{{ $user->id }}">
+            <form action="{{ route('work.destroy', $work) }}" method="POST">
+            <input type="hidden" name="id" value="{{ $work->id }}">
             @method('DELETE')
                 @csrf
                 <button type="submit" class="site-btn bg-danger btn btn-lg">Eliminar</button>

@@ -22,6 +22,7 @@ class CreateWorksTable extends Migration
             $table->string('tareas')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
