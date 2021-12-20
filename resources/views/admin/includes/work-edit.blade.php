@@ -62,7 +62,7 @@
             <form action="{{ route('work.destroy', $work) }}" method="POST">
             @csrf
             @method('DELETE')
-                
+            <input type="hidden" name="id" value="{{ $work->id }}">
                 <button type="submit" class="site-btn bg-danger btn btn-lg">Eliminar</button>
             </form>
 @endforeach

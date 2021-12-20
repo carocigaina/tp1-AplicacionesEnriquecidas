@@ -112,6 +112,7 @@ class WorkController extends Controller
         $data = $request->all();
         
         $id = intval($data['id']);
+        
         $work = Work::where('id', $id)->get();
         Work::where('id', $id)->delete();
         return redirect()->to('user/'.$work[0]->user_id.'/edit')->with('success','El trabajo fue eliminado con exito');
