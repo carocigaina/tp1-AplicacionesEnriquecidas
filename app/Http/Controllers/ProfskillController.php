@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Skill;
+use App\Models\Profskill;
 use Illuminate\Http\Request;
 
-class SkillController extends Controller
+class ProfskillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,14 +36,14 @@ class SkillController extends Controller
     {
         $data=$request->all();
         
-        $skill=Skill::create([ 
+        $profskill=Profskill::create([ 
         
             'name'=>$data['name'],
             'user_id'=>intval($data['user_id']),
             'percent'=> $data['percent'],
          ]);
 
-         $skill->save();
+         $profskill->save();
         return redirect()->to('user/'.$data['user_id'].'/edit')->with('success','Habilidad creada con exito');
     }
 
@@ -54,22 +54,20 @@ class SkillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeSkill(Request $request)
+    public function storeProfskill(Request $request)
     {
         $data=$request->all();
         
-        $skill=Skill::create([ 
+        $profskill=Profskill::create([ 
         
             'name'=>$data['name'],
             'user_id'=>intval($data['user_id']),
             'percent'=> $data['percent'],
          ]);
 
-         $skill->save();
+         $profskill->save();
         return redirect()->to('my-portfolio')->with('success','Habilidad creada con exito');
     }
-
-
 
 
     /**
@@ -101,29 +99,17 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, skill $skill)
+    public function update(Request $request)
     {
-        $skill->update($request->all());
-        return redirect()->to('user/'.$skill->user_id.'/edit')->with('sucess','Habilidad modificada con exito');
-    }
-
-
-     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateSkill(Request $request, Skill $skill)
-    {
+        //$profskill->update($request->all());
+        //return redirect()->to('user/'.$profskill->user_id.'/edit')->with('sucess','Habilidad modificada con exito');
         $data = $request->all();
-
         $id = intval($data['id']);
-
-        $skill->where('id', $id)->update(['name' => $data['name'],'percent' => $data['percent']]);
-
-        return redirect()->to('my-portfolio')->with('success', 'La habilidad editada con exito');
+        
+        Profskill::where('id', $id)->update(['name' => $data['name'], 'user' => $data['user'], 'percent' => $data['percent']]);
+        $profskill = Profskill::where('id', $id)->get();
+        return redirect()->to('user/'.$profskill[0]->user_id.'/edit')->with('success','El profesional skill fue editado con exito');
+    
     }
 
     /**
@@ -132,28 +118,17 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(skill $skill)
+    public function destroy(Request $request)
     {
-        $id=$skill->user_id;
-        $skill =Skill::find($skill->id);
-        $skill->delete();
-        return redirect()->to('user/'.$id.'/edit')->with('danger','Habilidad borrada con exito');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroySkill(Request $request, skill $skill)
-    {
+        //$id=$profskill->user_id;
+        ///$profskill =Profskill::find($profskill->id);
+        //$profskill->delete();
+        //return redirect()->to('user/'.$id.'/edit')->with('danger','Habilidad borrada con exito');
         $data = $request->all();
 
         $id = intval($data['id']);
-
-        $skill->where('id', $id)->delete();
-
-        return redirect()->to('my-portfolio')->with('danger', 'Habilidad borrada con exito');
+        $profskill = Profskill::where('id', $id)->get();
+        Profskill::where('id', $id)->delete();
+        return redirect()->to('user/'.$profskill[0]->user_id.'/edit')->with('success','Eñ profesional skill fue eliminado con exito');
     }
 }

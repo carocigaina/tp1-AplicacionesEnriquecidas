@@ -17,7 +17,8 @@ class Whatido extends Model
     protected $fillable = [
         
         'user_id',
-        'titulo',
+        
+        'subtitulo',
         'descripcion',
 
         
@@ -25,6 +26,6 @@ class Whatido extends Model
     ];
     public function user()
     {
-        return $this->belongsTo(whatido::class);
+        return $this->belongsTo(User::class);
     }
 }

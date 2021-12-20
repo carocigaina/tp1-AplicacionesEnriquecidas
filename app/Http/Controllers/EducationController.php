@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Whatido;
+
+use App\Models\Education;
 use Illuminate\Http\Request;
 
-
-class WhatidoController extends Controller
+class EducationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,19 +22,32 @@ class WhatidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createwhat(Request $request)
+    public function create()
+    {
+        //
+    }
+
+    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createeducation(Request $request)
     {
         $data = $request->all();
 
-        $what = Whatido::create([
+        $education = Education::create([
 
-            
-            'subtitulo' => $data['subtitulo'],
+            'school_name' => $data['school_name'],
+            'degree' => $data['degree'],
             'user_id' => intval($data['user_id']),
-            'descripcion' => $data['descripcion'],
+            'description' => $data['description'],
+            'start_date' => $data['start_date'],
+            'finish_date' => $data['finish_date'],
         ]);
 
-        $what->save();
+        $education->save();
         return redirect()->to('user/'.$data['user_id'].'/edit')->with('success','Creado con exito');
     }
 
@@ -78,16 +91,17 @@ class WhatidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        // COLOCAR EN TODOS LOS CONTROLLERS EN LA FUNCION UPDATE Y DESTROY LAS MODIFICACIONES COMO EN RedesControllers
         $data = $request->all();
 
         $id = intval($data['id']);
 
-        Whatido::where('id', $id)->update(['subtitulo' => $data['subtitulo'], 'descripcion' => $data['descripcion']]);
-        $what = Whatido::where('id', $id)->limit(1)->get();
-        return redirect()->to('user/'.$what[0]->user_id.'/edit')->with('success','Actualizado con exito');
+        Education::where('id', $id)->update(['school_name' => $data['school_name'],'degree' => $data['degree'],  'descripcion' => $data['descripcion'],'start_date' => $data['start_date'], 'finish_date' => $data['finish_date']]);
+
+       // return redirect()->to('my-portfolio')->with('success', 'Se ha actualizado con exito');
+       $education = Education::where('id', $id)->get();
+       return redirect()->to('user/'.$education[0]->user_id.'/edit')->with('success','Se ha actualizado con exito');
     }
 
     /**
@@ -96,14 +110,17 @@ class WhatidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, Education $education)
     {
         $data = $request->all();
 
         $id = intval($data['id']);
-        $what = Whatido::where('id', $id)->get();
-        Whatido::where('id', $id)->delete();
-        return redirect()->to('user/'.$what[0]->user_id.'/edit')->with('success','Se ha borrado con exito');
+        $education = Education::where('id', $id)->get();
+        Education::where('id', $id)->delete();
+
         //return redirect()->to('my-portfolio')->with('danger', 'Se ha borrado con exito');
+        
+       return redirect()->to('user/'.$education[0]->user_id.'/edit')->with('success','Se ha eliminado con exito');
+    
     }
 }

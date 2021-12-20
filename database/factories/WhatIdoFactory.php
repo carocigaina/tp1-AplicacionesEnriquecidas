@@ -22,7 +22,8 @@ class WhatidoFactory extends Factory
     public function definition()
     {
         return [
-            'titulo'=>$this->faker->title,
+            
+            'subtitulo'=>$this->faker->title,
             'descripcion'=>$this->faker->text,
             'user_id'=>rand(1,5),
         ];

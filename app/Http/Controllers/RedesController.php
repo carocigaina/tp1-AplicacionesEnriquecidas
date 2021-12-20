@@ -84,10 +84,11 @@ class RedesController extends Controller
     {
         $data = $request->all();
         $id = intval($data['id']);
-
+        
         Redes::where('id', $id)->update(['name' => $data['name'], 'url' => $data['url']]);
+        $red = Redes::where('id', $id)->get();
+        return redirect()->to('user/'.$red[0]->user_id.'/edit')->with('success','La red social fue editada con exito');
 
-        return redirect()->to('my-portfolio')->with('success', 'La red social fue editada con exito');
     }
 
     /**
@@ -98,11 +99,12 @@ class RedesController extends Controller
      */
     public function destroy(Request $request)
     {
-        $data = $request->all();
-       
-        $id = intval($data['id']);
 
+        $data = $request->all();
+
+        $id = intval($data['id']);
+        $red = Redes::where('id', $id)->get();
         Redes::where('id', $id)->delete();
-        return redirect()->to('my-portfolio')->with('danger','La red social fue borrada con exito');
+        return redirect()->to('user/'.$red[0]->user_id.'/edit')->with('success','La red social fue eliminada con exito');
     }
 }

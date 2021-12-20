@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Education extends Model
+class Profskill extends Model
 {
     use HasFactory;
+
     
     /**
      * The attributes that are mass assignable.
@@ -15,19 +16,16 @@ class Education extends Model
      * @var string[]
      */
     protected $fillable = [
-        
+        'name',
         'user_id',
-        'school_name',
-        'degree',
-        'description',
-        'start_date',
-        'finish_date',
+        'percent',
 
         
         
     ];
+
     public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+{
+    return$this->belongTo(User::class);
+}
 }

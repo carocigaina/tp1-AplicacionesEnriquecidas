@@ -1,7 +1,9 @@
 @foreach ($user->redes as $red)
+
     <form action="{{ route('redes.update', $red) }}"
           method="POST">
-        <div class="form-group">
+     
+          <div class="form-group">
             <select class="form-select" aria-label="Default select example" name="name" >
                 <option selected>{{ old('name', $red->name) }}</option>
                 <option value="facebook">Facebook</option>
@@ -22,12 +24,12 @@
         @csrf
         @method('PUT')
         <button class="bg-warning btn btn-lg" type="submit" class="site-btn">Actualizar</button>
-    </form>
+    </form> 
     <form action="{{ route('redes.destroy', $red) }}"
           method="POST">
           <input type="hidden" name="id" value="{{ $red->id }}">
-          @csrf
         @method('DELETE')
+          @csrf
         <button class="bg-danger btn btn-lg" type="submit" class="site-btn">Eliminar</button>
     </form>
 @endforeach

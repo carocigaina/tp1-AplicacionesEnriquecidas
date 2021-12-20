@@ -17,7 +17,8 @@ class CreateWhatidosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             
-            $table->string('titulo')->nullable();
+            
+            $table->string('subtitulo')->nullable();
             $table->string('descripcion')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

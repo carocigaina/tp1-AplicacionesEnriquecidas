@@ -40,6 +40,10 @@ class User extends Authenticatable
         'about_image',
         'about_button',
         'what_title',
+        'techskill_title',
+        'profskill_title',
+        'education_title',
+        'work_title',
         
     ];
 
@@ -81,13 +85,13 @@ class User extends Authenticatable
         return $this->hasMany(Education::class, 'user_id', 'id');
 
     }
-    public function skillsProfessional(){
-        return $this->hasMany(skillsProfessional::class, 'user_id', 'id');
+    public function profskill(){
+        return $this->hasMany(profskill::class, 'user_id', 'id');
     }
 
-    public function works()
+    public function work()
     {
-        return $this->hasMany(Works::class, 'user_id', 'id');
+        return $this->hasMany(Work::class, 'user_id', 'id');
 
     }
     public function featuredProjects()
@@ -110,11 +114,7 @@ class User extends Authenticatable
         return $this->hasMany(Redes::class, 'user_id', 'id');
 
     }
-    public function about()
-    {
-        return $this->hasMany(About::class, 'user_id', 'id');
-
-    }
+    
     public function getGetImageAttribute($key){
         if($this->image){
             return url("storage/$this->image");

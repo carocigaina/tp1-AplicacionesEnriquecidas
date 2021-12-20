@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Education extends Model
+class Work extends Model
 {
     use HasFactory;
+
     
     /**
      * The attributes that are mass assignable.
@@ -17,9 +18,9 @@ class Education extends Model
     protected $fillable = [
         
         'user_id',
-        'school_name',
-        'degree',
-        'description',
+        'work_name',
+        'lugar',
+        'tareas',
         'start_date',
         'finish_date',
 

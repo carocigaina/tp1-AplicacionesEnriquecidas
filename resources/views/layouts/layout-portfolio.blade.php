@@ -115,7 +115,7 @@
                         <div class="mh-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                             <i class="fa fa-bullseye purple-color"></i>
                             
-                            <h3>{{ $whatido->titulo }}</h3>
+                            <h3>{{ $whatido->subtitulo }}</h3>
                             <p>{{ $whatido->descripcion }} </p>
                             
                         </div>
@@ -211,7 +211,8 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-skills-inner">
                                 <div class="mh-professional-skill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                    <h3>Technical Skills</h3>
+                                    <h3>{{ $user->techskill_title }}</h3>
+                                    
                                     <div class="each-skills">
                                         @foreach($user->skill as $skill)
                                         <div class="candidatos">
@@ -230,13 +231,13 @@
                                        
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-professional-skills wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                <h3>Professional Skills</h3>
-                                @foreach($user->skillsProfessional as $skillsProfessional)
+                                <h3>{{ $user->profskill_title }}</h3>
+                                @foreach($user->profskill as $profskill)
                                 <ul class="mh-professional-progress">
                                 
                                     <li>
-                                        <div class="mh-progress mh-progress-circle" data-progress="{{ $skillsProfessional->percent }}"></div>
-                                        <div class="pr-skill-name">{{ $skillsProfessional->name }}</div>
+                                        <div class="mh-progress mh-progress-circle" data-progress="{{ $profskill->percent }}"></div>
+                                        <div class="pr-skill-name">{{ $profskill->name }}</div>
                                     </li>
                                       
                                 </ul>
@@ -259,7 +260,7 @@
                     <div class="row section-separator">
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-education">
-                                <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Education</h3>
+                                <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->education_title }}</h3>
                                 <div class="mh-education-deatils">
                                     @foreach($user->education as $education)
                                         <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
@@ -274,16 +275,16 @@
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-work">
-                                 <h3>Work Experience</h3>
+                                 <h3>{{ $user->work_title }}</h3>
                                 <div class="mh-experience-deatils">
                                     <!-- Education Institutes-->
-                                    @foreach($user->works as $works)
+                                    @foreach($user->work as $work)
                                     <div class="mh-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                                        <h4>{{ $works->work_name }} <a href="#">{{ $works->lugar }}</a></h4>
-                                        <div class="mh-eduyear">{{ $works->start_date }} - {{ $works->finish_date }}</div>
+                                        <h4>{{ $work->work_name }} <a href="#">{{ $work->lugar }}</a></h4>
+                                        <div class="mh-eduyear">{{ $work->start_date }} - {{ $work->finish_date }}</div>
                                         <span>Responsibility :</span>
                                         <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>{{ $works->tareas }}</li>
+                                            <li><i class="fa fa-circle"></i>{{ $work->tareas }}</li>
                                             
                                         </ul>
                                     </div>                                

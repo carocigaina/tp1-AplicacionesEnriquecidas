@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\works;
+use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class WorksFactory extends Factory
+class WorkFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = works::class;
+    protected $model = Work::class;
 
     /**
      * Define the model's default state.

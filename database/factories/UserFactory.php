@@ -40,6 +40,10 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2a$12$gMfFMMSdjyFBfqRDtu5bOumIoFXH0hubnuNUT2Rs5rBWXPocCVoYu', // clave1234
             'remember_token' => Str::random(10),
+            'techskill_title'=> $this->faker->name(),
+            'profskill_title'=> $this->faker->name(),
+            'education_title'=> $this->faker->name(),
+            'work_title'=> $this->faker->name(),
         ];
     }
 

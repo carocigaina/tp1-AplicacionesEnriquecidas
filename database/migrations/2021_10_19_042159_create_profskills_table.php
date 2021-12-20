@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkillsProfessionalsTable extends Migration
+class CreateProfskillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSkillsProfessionalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skills_professionals', function (Blueprint $table) {
+        Schema::create('profskills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name')->nullable();
             $table->integer('percent')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateSkillsProfessionalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skills_professionals');
+        Schema::dropIfExists('profskills');
     }
 }

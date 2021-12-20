@@ -25,9 +25,9 @@
     </form>
     <form action="{{ route('redes.destroy', $red) }}"
           method="POST">
-          
+          <input type="hidden" name="id" value="{{ $red->id }}">
           @csrf
-        @method('DELETE')
+             @method('DELETE')
         <button class="bg-danger btn btn-lg" type="submit" class="site-btn">Eliminar</button>
     </form>
 @endforeach
