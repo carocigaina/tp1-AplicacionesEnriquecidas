@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         });
         Skill::factory(25)->create();
         Education::factory(18)->create();
-        Profskill::factory(30)->create();
+        Profskill::factory(25)->create();
         Work::factory(20)->create();
         post::factory(10)->create();
         featuredProjects::factory(20)->create();

@@ -20,7 +20,7 @@ class Redes extends Model
         'name',
         'user_id',
         'url',
-        'percent',
+        
 
         
         

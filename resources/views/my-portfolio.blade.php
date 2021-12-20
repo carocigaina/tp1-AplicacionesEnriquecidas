@@ -145,7 +145,7 @@
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
 
-                        <div class="tab-pane fade " id="v-pills-crear" role="tabpanel" aria-labelledby="v-pills-crear-tab">
+                        <div class="tab-pane fade show active" id="v-pills-crear" role="tabpanel" aria-labelledby="v-pills-crear-tab">
 
                             @include('client.includes.redes-create')
 
@@ -171,7 +171,7 @@
                         
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade" id="v-pills-whatcrear" role="tabpanel" aria-labelledby="v-pills-whatcrear-tab">
+                        <div class="tab-pane fade show active" id="v-pills-whatcrear" role="tabpanel" aria-labelledby="v-pills-whatcrear-tab">
                          @include('client.includes.what-edit')     
                          
                         </div>
@@ -191,15 +191,15 @@
                 <div class="d-flex align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button class="nav-link active" id="v-pills-new-tab" data-bs-toggle="pill" data-bs-target="#v-pills-new" type="button" role="tab" aria-controls="v-pills-new" aria-selected="true">Agregar</button>
-                        <button class="nav-link" id="v-pills-edit-tab" data-bs-toggle="pill" data-bs-target="#v-pills-edit" type="button" role="tab" aria-controls="v-pills-edit" aria-selected="false">Editar</button>
+                        <button class="nav-link" id="v-pills-profedit-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profedit" type="button" role="tab" aria-controls="v-pills-edit" aria-selected="false">Editar</button>
                         
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade" id="v-pills-new" role="tabpanel" aria-labelledby="v-pills-new-tab">
+                        <div class="tab-pane fade show active" id="v-pills-new" role="tabpanel" aria-labelledby="v-pills-new-tab">
                             
                         @include('client.includes.profskill-create') 
                         </div>
-                        <div class="tab-pane fade" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                        <div class="tab-pane fade" id="v-pills-profedit" role="tabpanel" aria-labelledby="v-pills-profedit-tab">
                         @include('client.includes.profskill-edit') 
                         </div>
                     </div>
@@ -210,15 +210,15 @@
                 <div class="d-flex align-items-start">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button class="nav-link active" id="v-pills-new-tab" data-bs-toggle="pill" data-bs-target="#v-pills-new" type="button" role="tab" aria-controls="v-pills-new" aria-selected="true">Agregar Educacion</button>
-                        <button class="nav-link" id="v-pills-edit-tab" data-bs-toggle="pill" data-bs-target="#v-pills-edit" type="button" role="tab" aria-controls="v-pills-edit" aria-selected="false">Editar</button>
+                        <button class="nav-link" id="v-pills-editeducation-tab" data-bs-toggle="pill" data-bs-target="#v-pills-editeducation" type="button" role="tab" aria-controls="v-pills-edit" aria-selected="false">Editar</button>
                         
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade " id="v-pills-new" role="tabpanel" aria-labelledby="v-pills-new-tab">
+                        <div class="tab-pane fade show active" id="v-pills-new" role="tabpanel" aria-labelledby="v-pills-new-tab">
                             
                         @include('client.includes.education-create') 
                         </div>
-                        <div class="tab-pane fade" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                        <div class="tab-pane fade" id="v-pills-editeducation" role="tabpanel" aria-labelledby="v-pills-editeducation-tab">
                         @include('client.includes.education-edit') 
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                         
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade " id="v-pills-new" role="tabpanel" aria-labelledby="v-pills-new-tab">
+                        <div class="tab-pane fade show active" id="v-pills-new" role="tabpanel" aria-labelledby="v-pills-new-tab">
                             
                         @include('client.includes.work-create') 
                         </div>

@@ -98,7 +98,7 @@ class WorkController extends Controller
         Work::where('id', $id)->update(['work_name' => $data['work_name'],'lugar' => $data['lugar'],  'tareas' => $data['tareas'],'start_date' => $data['start_date'], 'finish_date' => $data['finish_date']]);
         $work = Work::where('id', $id)->get();
         return redirect()->to('user/'.$work[0]->user_id.'/edit')->with('success','El trabajo fue actualizado con exito');
-        //return redirect()->to('my-portfolio')->with('success', 'Se ha actualizado con exito');
+        
     }
 
     /**
@@ -115,6 +115,6 @@ class WorkController extends Controller
         $red = Work::where('id', $id)->get();
         Work::where('id', $id)->delete();
         return redirect()->to('user/'.$red[0]->user_id.'/edit')->with('success','El trabajo fue eliminado con exito');
-        //return redirect()->to('my-portfolio')->with('danger', 'Se ha borrado con exito');
+        
     }
 }

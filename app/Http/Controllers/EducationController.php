@@ -91,13 +91,13 @@ class EducationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $data = $request->all();
 
         $id = intval($data['id']);
 
-        Education::where('id', $id)->update(['school_name' => $data['school_name'],'degree' => $data['degree'],  'descripcion' => $data['descripcion'],'start_date' => $data['start_date'], 'finish_date' => $data['finish_date']]);
+        Education::where('id', $id)->update(['school_name' => $data['school_name'],'degree' => $data['degree'],  'description' => $data['description'],'start_date' => $data['start_date'], 'finish_date' => $data['finish_date']]);
 
        // return redirect()->to('my-portfolio')->with('success', 'Se ha actualizado con exito');
        $education = Education::where('id', $id)->get();
@@ -110,7 +110,7 @@ class EducationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Education $education)
+    public function destroy(Request $request)
     {
         $data = $request->all();
 

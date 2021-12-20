@@ -323,7 +323,7 @@
                                 
                             @include('admin.includes.work-create') 
                             </div>
-                            <div class="tab-pane fade" id="v-pills-edit-work" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                            <div class="tab-pane fade" id="v-pills-edit-work" role="tabpanel" aria-labelledby="v-pills-edit-tab-work">
                             @include('admin.includes.work-edit') 
                             </div>
                         </div>

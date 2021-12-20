@@ -18,7 +18,7 @@ class CreateRedesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name')->nullable();
             $table->string('url')->nullable();
-            $table->integer('percent')->nullable();
+          
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

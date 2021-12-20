@@ -42,7 +42,7 @@ class RedesController extends Controller
             'name'=>$data['name'],
             'url'=>$data['url'],
             'user_id'=>intval($data['user_id']),
-            'percent'=> 50
+            
          ]);
 
          $redes->save();

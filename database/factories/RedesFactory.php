@@ -24,7 +24,7 @@ class RedesFactory extends Factory
         return [
             'name' => $this->faker->word,
             'url' => $this->faker->url,
-                'percent' => rand(1,99),
+                
                 'user_id'=>rand(1,5),
         ];
     }
