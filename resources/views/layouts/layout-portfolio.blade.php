@@ -13,7 +13,11 @@
                             <div class="mh-header-info">
                                 
                                 <div class="mh-promo wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+                                    @if ($user->mensaje == null)
+                                    <span>Mensaje no disponible</span>
+                                    @else
                                     <span>{{ $user->mensaje }}</span>
+                                    @endif
                                 </div>
                                 
                                 <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->uppercase }}</h2>
@@ -21,7 +25,11 @@
                                 <ul>
                                     <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->title_job }}</h4>
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">{{ $user->email }}</a></li>
+                                    @if ($user->tel == null)
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:{{ $user->tel }}">Telefono no disponible</a></li>
+                                    @else
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:{{ $user->tel }}">{{ $user->tel }}</a></li>
+                                    @endif
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>{{ $user->address }}</address></li>
                                 </ul>
                                 
@@ -82,7 +90,11 @@
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-inner">
+                            @if ($user->about_title == null)
+                            <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">Titulo de la sección "About"</h2>
+                            @else
                             <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">{{ $user->about_title }}</h2>
+                            @endif
                             <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->about }}</p>
                             <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 <ul>
@@ -107,7 +119,11 @@
             <div class="container">
                 <div class="row section-separator">
                     <div class="col-sm-12 text-center section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                        @if ($user->what_title == null)
+                        <h2>Titulo de la sección "What i do"</h2>
+                        @else
                         <h2>{{ $user->what_title }}</h2>
+                        @endif
                     </div>
                     
                     <div class="col-sm-4">
@@ -211,8 +227,11 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-skills-inner">
                                 <div class="mh-professional-skill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                                    @if ($user->techskill_title == null)
+                                    <h3>Titulo de la sección "Technical Skills"</h3>
+                                    @else
                                     <h3>{{ $user->techskill_title }}</h3>
-                                    
+                                    @endif
                                     <div class="each-skills">
                                         @foreach($user->skill as $skill)
                                         <div class="candidatos">
@@ -231,7 +250,11 @@
                                        
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-professional-skills wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
+                                @if ($user->profskill_title == null)
+                                <h3>Titulo de la sección "Professional Skills"</h3>
+                                @else
                                 <h3>{{ $user->profskill_title }}</h3>
+                                @endif
                                 @foreach($user->profskill as $profskill)
                                 <ul class="mh-professional-progress">
                                 
@@ -260,7 +283,12 @@
                     <div class="row section-separator">
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-education">
+                                @if ($user->education_title == null)
+                                <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Titulo de la sección "Educación"</h3>
+                                @else
+
                                 <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->education_title }}</h3>
+                                @endif
                                 <div class="mh-education-deatils">
                                     @foreach($user->education as $education)
                                         <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
@@ -275,7 +303,11 @@
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="mh-work">
-                                 <h3>{{ $user->work_title }}</h3>
+                                @if ($user->work_title == null)
+                                <h3>Titulo de la sección "Work"</h3>
+                                @else
+                                <h3>{{ $user->work_title }}</h3>
+                                @endif
                                 <div class="mh-experience-deatils">
                                     <!-- Education Institutes-->
                                     @foreach($user->work as $work)

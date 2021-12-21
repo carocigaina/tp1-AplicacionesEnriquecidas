@@ -2,7 +2,7 @@
 
 @section('main-content')
 <div class="col-12">
-    {{ ($user->id == 1) ? $user->role = "admin" : $user->role = "client" }}
+    <!-- {{ ($user->id == 1) ? $user->role = "admin" : $user->role = "client" }}  -->
     <div class="row">
         @if(session('success'))
             <div class="alert alert-success" role="alert">
@@ -31,10 +31,21 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" >
                         Nombres
                     </label>
-                    <h3>role{{ $user->role }}</h3>
+                    <!-- <h3>role{{ $user->role }}</h3>-->
 
                     <input id="name" type="text"  name="name" class="form-control" value="{{ old('name', $user->name) }}">
                     @error('name')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" >
+                        Slug
+                    </label>
+                    
+
+                    <input id="slug" type="text"  name="slug" class="form-control" value="{{ old('slug', $user->slug) }}">
+                    @error('slug')
                         <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
                     @enderror
                 </div>

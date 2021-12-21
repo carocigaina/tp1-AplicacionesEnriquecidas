@@ -24,12 +24,26 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //'name'=>'required | min:5 | max:64',
-            //'slug'=>'required |unique:users,slug',
-           // 'title_job'=>'required | min:5 | max:64',
-            //'tel'=>'required |numeric | min:6',
-            //'address'=>'required | min:10 | max:128',
-            //'file'=>'image:jpg |dimensions:min_width=100,min_height=200 | size:512',
+            
+              'slug'=>'required |unique:users,slug',
+              'name'          => 'required | min:5 | max:64',
+              'title_job'     => 'required | min:5 | max:64',
+              'tel'           => '  max:15',
+              'address'       => 'min:10 | max:128',
+              'file'          => 'image:jpg | dimensions:min_width=100,min_height=200 ',
+              'mensaje'=> '  max:64',
+              'image'=> 'image:jpg | dimensions:min_width=100,min_height=200 ',
+              'address'=> ' min:5 | max:64',
+              'email'=> 'required |min:5 | max:64',
+              'about'=> 'min:5 | max:64',
+              'about_title'=> ' max:64',
+              'about_image'=> 'image:jpg | dimensions:min_width=100,min_height=200 ',
+              'about_button'=> ' required |min:5 | max:64',
+              'what_title'=> ' max:64',
+              'techskill_title'=> 'max:64',
+              'profskill_title'=> 'max:64',
+              'education_title'=> 'max:64',
+              'work_title'=> 'max:64',
         ];
     }
 }
