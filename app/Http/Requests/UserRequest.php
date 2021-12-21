@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
             
               'slug'=>'required |unique:users,slug',
-              'name'          => 'required | min:5 | max:64',
+              'name'          => 'required | min:4 | max:64',
               'title_job'     => 'required | min:5 | max:64',
               'tel'           => '  max:15',
               'address'       => 'min:10 | max:128',

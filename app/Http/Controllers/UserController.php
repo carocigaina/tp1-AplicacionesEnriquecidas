@@ -112,7 +112,7 @@ class UserController extends Controller
             
             return redirect()->to('user')->with('success', 'Tus datos fueron creados con exito');
         }else{
-            return redirect()->to('my-portfolio')->with('success', 'Tus datos fueron creados con exito');
+            return redirect()->to('user')->with('success', 'Tus datos fueron creados con exito');
         }
         
     }
