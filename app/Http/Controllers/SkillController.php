@@ -66,7 +66,8 @@ class SkillController extends Controller
          ]);
 
          $skill->save();
-        return redirect()->to('my-portfolio')->with('success','Habilidad creada con exito');
+        //return redirect()->to('my-portfolio')->with('success','Habilidad creada con exito');
+        return redirect()->to('user/'.$skill[0]->user_id.'/edit')->with('success','El skill fue editado con exito');
     }
 
 
@@ -104,7 +105,7 @@ class SkillController extends Controller
     public function update(Request $request, skill $skill)
     {
         $skill->update($request->all());
-        return redirect()->to('user/'.$skill->user_id.'/edit')->with('sucess','Habilidad modificada con exito');
+        return redirect()->to('user/'.$skill->user_id.'/edit')->with('success','Habilidad modificada con exito');
     }
 
 
@@ -120,10 +121,12 @@ class SkillController extends Controller
         $data = $request->all();
 
         $id = intval($data['id']);
+        Skill::where('id', $id)->update(['name' => $data['name'],'percent' => $data['percent']]);
+        $skill = Skill::where('id', $id)->get();
+        return redirect()->to('user/'.$skill[0]->user_id.'/edit')->with('success','La habilidad editada con exito');
+        //$skill->where('id', $id)->update(['name' => $data['name'],'percent' => $data['percent']]);
 
-        $skill->where('id', $id)->update(['name' => $data['name'],'percent' => $data['percent']]);
-
-        return redirect()->to('my-portfolio')->with('success', 'La habilidad editada con exito');
+        //return redirect()->to('my-portfolio')->with('success', 'La habilidad editada con exito');
     }
 
     /**

@@ -1,5 +1,5 @@
 
-            <form action="{{ route('storeSkill') }}"
+            <form action="{{ route('skill.store') }}"
             method="POST">
 
                 <div class="form-row">

@@ -20,7 +20,7 @@
             
                 <div class="col-md-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" >
-                        Nombres
+                        Nombre
                     </label>
                     <input id="name" type="text"  name="name" class="form-control" value="{{ old('name', $user->name) }}">
                     @error('name')
@@ -71,6 +71,15 @@
                     </label>
                     <input id="address" type="text"  name="address" class="form-control" value="{{ old('address', $user->address) }}">
                     @error('address')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" >
+                       Mail
+                    </label>
+                    <input id="email" type="text"  name="email" class="form-control" value="{{ old('email', $user->email) }}">
+                    @error('email')
                         <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
                     @enderror
                 </div>

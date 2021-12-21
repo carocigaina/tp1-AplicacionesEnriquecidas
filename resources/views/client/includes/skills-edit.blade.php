@@ -1,5 +1,5 @@
 @foreach($user->skill as $skill)
-            <form action="{{ route('skill.updateSkill', $skill) }}"
+            <form action="{{ route('skill.update', $skill) }}"
             method="POST">
 
                 <div class="form-row">
@@ -28,7 +28,7 @@
                 
                 <button type="submit" class="site-btn bg-warning btn btn-lg">Actualizar</button>
             </form>
-            <form action="{{ route('destroySkill', $skill) }}" method="POST">
+            <form action="{{ route('skill.destroy', $skill) }}" method="POST">
             <input type="hidden" name="id" value="{{ $skill->id }}">
             @method('DELETE')
                 @csrf

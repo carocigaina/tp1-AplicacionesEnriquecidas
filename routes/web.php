@@ -133,6 +133,9 @@ Route::group(['middleware'=> ['auth:sanctum', 'verified']], function (){
      Route::post('creatework', WorkController::class.'@creatework')->name('creatework');
      Route::put('update', WorkController::class.'@update')->name('update');
      Route::delete('destroy', WorkController::class.'@destroy')->name('destroy');
+     Route::put('update', UserController::class.'@update')->name('update');
+     Route::delete('destroy', UserController::class.'@destroy')->name('destroy');
+     //Route::post('edit', UserController::class.'@edit')->name('edit');
      Route::get('my-portfolio', UserController::class.'@my_portfolio')->name('my-portfolio');
      
 

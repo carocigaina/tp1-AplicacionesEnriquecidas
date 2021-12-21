@@ -132,13 +132,26 @@ class UserController extends Controller
         // UserRequest es un request customizable hecho con artisan
 
         // Validaciones en el controlador
-        // $request->validate([
-        //     'name'          => 'required | min:5 | max:64',
-        //     'title_job'     => 'required | min:5 | max:64',
-        //     'tel'           => 'required | numeric | min:6',
-        //     'address'       => 'required | min:10 | max:128',
-        //     'file'          => 'image:jpg | dimensions:min_width=100,min_height=200 | size:512',
-        // ]);
+          $request->validate([
+              'name'          => 'required | min:5 | max:64',
+              'title_job'     => 'required | min:5 | max:64',
+              'tel'           => ' numeric | min:6',
+              'address'       => 'min:10 | max:128',
+              'file'          => 'image:jpg | dimensions:min_width=100,min_height=200 | size:512',
+              'mensaje'=> ' min:5 | max:64',
+              'image'=> 'image:jpg | dimensions:min_width=100,min_height=200 | size:512',
+              'address'=> ' min:5 | max:64',
+              'email'=> 'min:5 | max:64',
+              'about'=> 'min:5 | max:64',
+              'about_title'=> ' min:5 | max:64',
+              'about_image'=> 'image:jpg | dimensions:min_width=100,min_height=200 | size:512',
+              'about_button'=> ' min:5 | max:64',
+              'what_title'=> ' min:5 | max:64',
+              'techskill_title'=> ' min:5 | max:64',
+              'profskill_title'=> ' min:5 | max:64',
+              'education_title'=> 'min:5 | max:64',
+              'work_title'=> ' min:5 | max:64',
+          ]);
 
 
         if($request->file('file')){

@@ -1,5 +1,5 @@
 @foreach($user->whatido as $what)     
-    <form action="{{ route('what.update', $what) }}"
+    <form action="{{ route('whatido.update', $what) }}"
             method="POST">
 
                 
@@ -29,7 +29,7 @@
                 
                 <button type="submit" class="site-btn bg-warning btn btn-lg">Actualizar</button>
             </form>
-            <form action="{{ route('destroy', $what) }}" method="POST">
+            <form action="{{ route('whatido.destroy', $what) }}" method="POST">
             <input type="hidden" name="id" value="{{ $what->id }}">
             @method('DELETE')
                 @csrf
